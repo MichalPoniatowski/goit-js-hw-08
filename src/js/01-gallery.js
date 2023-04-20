@@ -1,15 +1,13 @@
-// Add imports above this line
-import { galleryItems } from "./gallery-items";
-// Change code below this line
+import { galleryItems } from './gallery-items';
 
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const galleryEL = document.querySelector(".gallery");
+const galleryEL = document.querySelector('.gallery');
 
-galleryItems.forEach((item) => {
+galleryItems.forEach(item => {
   galleryEL.insertAdjacentHTML(
-    "beforeend",
+    'beforeend',
     `
       <li class="gallery__item">
        <a class="gallery__link" href="${item.original}">
@@ -22,7 +20,7 @@ galleryItems.forEach((item) => {
   );
 });
 
-const lightbox = new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
-  captionsData: "alt",
+  captionsData: 'alt',
 });
