@@ -23,13 +23,8 @@ const checkLocalStorage = () => {
 
 checkLocalStorage();
 
-function emailLocalStorage(event) {
-  data.email = event.target.value;
-  localStorage.setItem('feedback-form-state', JSON.stringify(data));
-}
-
-function messageLocalSorage(event) {
-  data.message = event.target.value;
+function localData(event) {
+  data[event.target.name] = event.target.value;
   localStorage.setItem('feedback-form-state', JSON.stringify(data));
 }
 
@@ -39,6 +34,6 @@ function resetLocalSorage(event) {
   checkLocalStorage();
 }
 
-emailEl.addEventListener('input', throttle(emailLocalStorage, 1000));
-messageEl.addEventListener('input', throttle(messageLocalSorage, 1000));
+emailEl.addEventListener('input', throttle(localData, 1000));
+messageEl.addEventListener('input', throttle(localData, 1000));
 btnEl.addEventListener('click', resetLocalSorage);
